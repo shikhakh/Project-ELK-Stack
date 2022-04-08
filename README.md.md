@@ -62,7 +62,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | SSH Yes |     |local workstation public IP address
+| Jump Box | SSH Yes |   local workstation public IP address
 |  WEB1  & 2     |   No                  |      *                 |
 |   ELK      |   Kibana - Yes           |                                                         *             |
 
@@ -112,22 +112,23 @@ Metricbeat helps you monitor your servers by collecting metrics from the system 
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the install-elk.yml file to /etc/ansible/roles/install-elk.yml.
-- Update the hosts file to include IP of the ELK and webservers.
+- Copy the install-elk.yml file to /etc/ansible/roles.
+- Update the hosts file to include IP address of the ELK and webservers and variable ansible_python_interpreter=/usr/bin/python to hosts file.
 - Run the playbook, and navigate to http://[your_elk_server_ip]:5601/app/kibana to check that the installation worked as expected.
 
 
-- _Which file is the playbook? Where do you copy it?
+Which file is the playbook? Where do you copy it?
 Playbooks are the files where Ansible code is written. Playbooks are written in YAML format. YAML stands for Yet Another Markup Language. Playbooks are one of the core features of Ansible and tell Ansible what to execute. They are copied in the ansible directory.
 
 
-- _Which file do you update to make Ansible run the playbook on a specific machine? 
+Which file do you update to make Ansible run the playbook on a specific machine? 
 Hosts
 
 How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+By updating the config files accordingly
 
-By updating the config files
 - http://[your_elk_server_ip]:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml
+
