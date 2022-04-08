@@ -1,0 +1,20 @@
+
+#!/bin/bash
+if [ -d ~/research1 ]
+then
+echo "Directory research exists"
+else
+mkdir research1
+echo "Directory created"
+fi
+
+if [ ! -f ~/research1/sys_info.txt ]
+then
+echo "New file created"
+touch ~/research1/sys_info.txt
+fi
+
+#Bonus 1
+IP=$(ip addr | grep inet | tail -2 | head -1)
+echo $IP
+
